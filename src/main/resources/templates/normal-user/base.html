@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content, title)">
+<head>
+    <title th:replace="${title}"></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.5.3/css/mdb.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body onload="showToast(); deletePopup()">
+
+    <!-- NAVBAR START -->
+    <th:block th:replace="~{normal-user/navbar::user-navbar}"></th:block>
+    <!-- NAVBAR END -->
+
+
+    <!-- DASHBOARD START -->
+    <th:block th:replace="~{normal-user/dashboard::dashboard}"></th:block>
+    <!-- DASHBOARD END -->
+
+
+    <!-- CONTENT START -->
+    <div class="content user-content">
+        <div th:replace="${content}"></div>
+    </div>
+    <!-- CONTENT END -->
+
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script type="application/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.bundle.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="application/javascript" th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

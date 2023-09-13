@@ -1,0 +1,35 @@
+<th:block th:replace="normal-user/base::layout(~{::section}, ~{::title})">
+    <title>Smart Contact Manager - Dashboard</title>
+    <section th:fragment="dashboard">
+        <!--        <span class="dashboard-toggle"><i onclick="toggleSidebar()" class="fas fa-bars m-3"></i></span>-->
+        <!-- Sidebar start -->
+        <!--        <div class="sidebar" th:if="${session.userLoggedin}">-->
+        <!--            <span onclick="toggleSidebar()" class="crossBtn">&times;</span>-->
+        <!--            <a th:href="@{/user/dashboard}" class="item"><i class="fa-solid fa-house">&nbsp;&nbsp;</i>Home</a>-->
+        <!--            <a th:href="@{/user/view-contacts/0}" class="item"><i class="fa-regular fa-address-book"></i>&nbsp;&nbsp;View-->
+        <!--                Contacts</a>-->
+        <!--            <a th:href="@{/user/add-contact}" class="item"><i class="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Add Contact</a>-->
+        <!--            <a href="#" class="item"><i class="fa-regular fa-user"></i>&nbsp;&nbsp;Your Profile</a>-->
+        <!--            <a href="#" class="item"><i class="fa-solid fa-sliders"></i>&nbsp;&nbsp;Settings</a>-->
+        <!--            <a th:href="@{/logout}" class="item"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>-->
+        <!--        </div>-->
+        <!-- Sidebar end -->
+
+        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa-solid fa-eject fa-rotate-90"></i></button>
+
+        <div class="offcanvas offcanvas-start border-0" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h5 class="text-center w-75" id="offcanvasScrollingLabel" th:text="${'Hi, '+ session.user.firstName}"></h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body sidebar shadow">
+                <a th:href="@{/user/view-contacts/0(sortField='name',sortDir='asc')}" class="item"><i class="fa-regular fa-address-book"></i>&nbsp;&nbsp;View
+                    Contacts</a>
+                <a th:href="@{/user/add-contact}" class="item"><i class="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Add
+                    Contact</a>
+                <a href="#" class="item"><i class="fa-regular fa-user"></i>&nbsp;&nbsp;Your Profile</a>
+                <a th:href="@{/logout}" class="item"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
+            </div>
+        </div>
+    </section>
+</th:block>

@@ -1,0 +1,71 @@
+<th:block th:replace="normal-user/base::layout(~{::section}, ~{::title})">
+    <title>Add Contact</title>
+    <section class="mt-3">
+        <!--Toast-->
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" th:if="${status}" th:value="${status}">
+            <div class="toast-header">
+                <strong class="me-auto">Hi</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="container-lg ">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-10 mt-5">
+                    <div class="card glass-bg">
+                        <div class="reg-card card-body w-responsive">
+                            <h2 class="text-center mb-4">Add New Contact</h2>
+                            <form th:action="@{/user/process-contact}" method="post" enctype="multipart/form-data" id="addContactForm" th:object="${contact}">
+                                <div class="row">
+                                    <div class="col h-25 input-group mb-3 res-col">
+                                        <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
+                                        <input type="text" name="name" placeholder="Name" class="form-control" th:field="*{name}" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid':''">
+                                        <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:text="${#fields.errors('name')}"></div>
+                                    </div>
+                                    <div class="col h-25 input-group mb-3 res-col">
+                                        <select class="form-select" id="autoSizingSelect" name="relationship" th:field="*{relationship}" th:classappend="${#fields.hasErrors('relationship')} ? 'is-invalid':''">
+                                            <option selected value="">Relation</option>
+                                            <option value="Friend">Friend</option>
+                                            <option value="Spouse">Spouse</option>
+                                            <option value="Aunt/Uncle">Aunt/Uncle</option>
+                                            <option value="Parent">Parent</option>
+                                            <option value="Fiance">Fiance</option>
+                                            <option value="Neighbor">Neighbor</option>
+                                            <option value="Sibling">Sibling</option>
+                                            <option value="Child">Child</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div class="invalid-feedback" th:if="${#fields.hasErrors('relationship')}" th:text="${#fields.errors('relationship')}"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col h-25 input-group mb-3 res-col">
+                                        <div class="input-group-text"><i class="fa-solid fa-at"></i></div>
+                                        <input type="email" name="email" id="email" placeholder="Email" class="form-control" th:field="*{email}" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid':''">
+                                        <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')}"></div>
+                                    </div>
+                                    <div class="col h-25 input-group mb-3 res-col">
+                                        <div class="input-group-text"><i class="fa-solid fa-phone"></i></div>
+                                        <input type="tel" name="phone" id="phone" placeholder="Phone" class="form-control" th:field="*{phone}" th:classappend="${#fields.hasErrors('phone')} ? 'is-invalid':''">
+                                        <div class="invalid-feedback" th:if="${#fields.hasErrors('phone')}" th:text="${#fields.errors('phone')}"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3 input-group">
+                                    <textarea name="description" rows="7" placeholder="Enter something about the person" class="form-control"></textarea>
+                                </div>
+                                <div class="mb-3 ">
+                                    <label for="profile" class="form-label">Profile Image</label>
+                                    <input type="file" name="profileImage" id="profile" class="form-control">
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-outline-primary m-2">Save Contact</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>

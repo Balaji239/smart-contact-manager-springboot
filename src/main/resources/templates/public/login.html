@@ -1,0 +1,36 @@
+<th:block th:replace="public/base::layout(~{::section}, ~{::title})">
+    <title>Login</title>
+    <section id="login-section" class="h-100">
+        <div class="container-lg h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-md-6">
+                    <div class="card ">
+                        <div class="card-body">
+                            <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                                <strong>Login Failed!</strong> Email/Password is incorrect
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <form id="login-form" class="form" th:action="@{/doLogin}" method="post">
+                                <h3 class="text-center mt-2 mb-4">Login</h3>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" name="username" id="username" placeholder="name@example.com">
+                                    <label for="username">Email</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="password">
+                                    <label for="password">Password</label>
+                                </div>
+                                <div class="container text-center">
+                                    <input type="submit" value="Login" class="btn btn-primary login-btn w-75">
+                                </div>
+                                <div id="register-link" class="text-end mt-4">
+                                    <span>New User ? </span><a href="/signup">Register here</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>

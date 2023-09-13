@@ -1,0 +1,2 @@
+INSERT INTO `scm_users` (`first_name`, `last_name`,`email`,`contact_number`,`dob`,`gender`,`password`,`is_enabled`, `created_at`,`created_by`,`role`)
+VALUES ('Balaji','R','baji2391999@gmail.com','8310850942','1999-09-23','Male','$2a$12$9JC3kuQ/m.xgS0PcLqfrhOJj1qPIvYC.7hDeKv2hNGsHKnc1TbNF.','true',CURDATE(),'DBA','ROLE_NORMAL');
