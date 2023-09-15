@@ -9,29 +9,6 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.5.3/css/mdb.css}">
 
-    <style>
-
-        .b-example-divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-    </style>
-
 </head>
 <body>
     <th:block th:replace="public/navbar::navbar"></th:block>
@@ -43,12 +20,12 @@
             <img class="d-block mx-auto mb-4 shadow-lg mt-4" th:src="@{/image/con-logo.png}" alt="" width="75" height="65" style="border-radius: 10px">
             <h1 class="display-5 fw-bold">SMART CONTACT MANAGEMENT</h1>
             <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the
-                    world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive
-                    grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                <p class="lead mb-4">Welcome to Smart Contact Manager. Your All-in-One Contact Management Solution.</p>
+                    <p class="lead mb-4">Simplify your life with our intuitive Smart Contact Manager app. Stay organized, connected, and in control of your contacts like never before.
+                    Effortlessly manage your address book, enhance your communication, and unlock the full potential of your network.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Login</button>
-                    <button type="button" class="btn btn-outline-primary btn-lg px-4">Signup</button>
+                    <a class="btn btn-primary btn-lg px-4 gap-3" th:href="@{/signup}" >Login</a>
+                    <a class="btn btn-outline-primary btn-lg px-4" th:href="@{/signup}" >Signup</a>
                 </div>
             </div>
         </div>
@@ -69,23 +46,25 @@
                     <div class="col-lg-4">
                         <img th:src="@{/image/cloud-storage.jpg}" class="pb-2" width="150px" height="150px" style="border-radius: 50%"/>
                         <h2 class="fw-normal">Cloud Storage</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores exercitationem fugiat
-                            incidunt maxime minus quia debitis.</p>
-                        <p><a class="btn btn-outline-primary" href="#">View details &raquo;</a></p>
+                        <p>Never lose your contacts again. Smart Contact Manager seamlessly integrates with popular cloud storage services,
+                            keeping your contact data securely backed up and synchronized across all your devices. Access your contacts from anywhere, at any time,
+                            with peace of mind. Your contacts, always in the cloud</p>
+                        <p><a class="btn btn-outline-primary" href="#cloud-storage">View details &raquo;</a></p>
                     </div><!-- /.col-lg-4 -->
                     <div class="col-lg-4">
                         <img th:src="@{/image/privacy-sm.png}" class="pb-2" width="150px" height="150px" style="border-radius: 50%"/>
                         <h2 class="fw-normal">Privacy</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores exercitationem fugiat
-                            incidunt maxime minus quia debitis.</p>
-                        <p><a class="btn btn-outline-primary" href="#">View details &raquo;</a></p>
+                        <p>At Smart Contact Manager, we take your privacy seriously. Our app is designed with robust security and privacy measures to safeguard your contact information.
+                            We never sell or share your data with third parties.
+                            Your trust is our utmost priority. Rest easy, your contacts are in safe hands."</p>
+                        <p><a class="btn btn-outline-primary" href="#secure-connect">View details &raquo;</a></p>
                     </div><!-- /.col-lg-4 -->
                     <div class="col-lg-4">
                         <img th:src="@{/image/backup.jpg}" class="pb-2" width="150px" height="150px" style="border-radius: 50%"/>
                         <h2 class="fw-normal">Data Backup</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores exercitationem fugiat
-                            incidunt maxime minus quia debitis.</p>
-                        <p><a class="btn btn-outline-primary" href="#">View details &raquo;</a></p>
+                        <p>Say goodbye to data loss worries. Smart Contact Manager automatically backs up your contact data, ensuring that your information is safe and easily recoverable.
+                            Whether you switch devices or encounter unexpected issues, your contacts are always backed up and ready to restore."</p>
+                        <p><a class="btn btn-outline-primary" href="#fast-connection">View details &raquo;</a></p>
                     </div><!-- /.col-lg-4 -->
                 </div><!-- /.row -->
 
@@ -94,53 +73,46 @@
 
                 <hr class="featurette-divider" id="about">
 
-                <div class="row featurette">
+                <div class="row featurette" id="secure-connect">
                     <div class="col-md-7">
                         <h2 class="featurette-heading fw-normal lh-1">Secure Connectivity. <span class="text-muted">No worry of Privacy.</span>
                         </h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consectetur
-                            deserunt expedita ipsum molestias quidem rerum totam! Aut corporis doloribus, eius facere
-                            iure libero nesciunt pariatur soluta ullam unde. Dicta ipsa nemo vitae. Accusantium
-                            adipisci, aliquid, assumenda ea facere.</p>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consectetur
-                            deserunt expedita ipsum molestias quidem rerum totam! Aut corporis doloribus, eius facere
-                            iure libero nesciunt pariatur soluta ullam unde.</p>
+                        <p class="lead">Smart Contact Manager prioritizes your data security. We employ state-of-the-art encryption protocols to ensure that your connection to our servers is rock-solid and tamper-proof.
+                            With end-to-end encryption, your data remains confidential during transit, protecting it from prying eyes..</p>
+                        <p class="lead">Rest easy knowing that your contact information is yours and yours alone. We adhere to strict privacy policies, and your data is never used for advertising or any other purposes without your consent.
+                            Smart Contact Manager is built to empower you while safeguarding your privacy. Your trust is our commitment."</p>
                     </div>
                     <div class="col-md-5">
                         <img th:src="@{/image/secure.jpg}" class="pb-2 img-fluid" width="500px" height="500px" style="border-radius: 3%"/>
                     </div>
                 </div>
 
-                <hr class="featurette-divider">
+                <hr class="featurette-divider" id="cloud-storage">
 
                 <div class="row featurette">
                     <div class="col-md-7 order-md-2">
                         <h2 class="featurette-heading fw-normal lh-1">Oh yeah, You can access anywhere.
                             <span class="text-muted">Cloud Storage.</span></h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, cupiditate
-                            distinctio magni natus perspiciatis qui recusandae. Itaque mollitia natus nisi obcaecati
-                            perferendis sapiente voluptates! A animi at blanditiis debitis, dicta doloribus earum iste
-                            non perferendis, possimus quaerat quam ratione voluptatibus. Delectus ipsam maiores rem. Ab
-                            ad aliquam asperiores at autem commodi culpa cupiditate delectus doloribus ea, et facilis
-                            fugit in ipsum labore magnam maiores odio.</p>
+                        <p class="lead">With Smart Contact Manager, your contacts are stored in highly secure cloud environments. We partner with industry-leading cloud providers to ensure the utmost data security.
+                            Your contact information is encrypted both in transit and at rest, making it virtually impenetrable to unauthorized access.</p>
+                        <p class="lead">Our cloud storage solution is designed for maximum reliability. We implement redundant data storage and frequent backups to minimize the risk of data loss. Even in the rare event of a server issue,
+                            your contacts are safe and accessible, ensuring you're never left in the lurch.</p>
                     </div>
                     <div class="col-md-5 order-md-1">
                         <img th:src="@{/image/cloud.jpg}" class="pb-2 img-fluid" width="500px" height="500px" style="border-radius: 3%"/>
                     </div>
                 </div>
 
-                <hr class="featurette-divider">
+                <hr class="featurette-divider" id="fast-connection">
 
                 <div class="row featurette">
                     <div class="col-md-7">
                         <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Blazing connection</span>
                         </h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci corporis
-                            culpa nobis numquam ratione! A aperiam at cum dolore, dolorum eos, facilis incidunt itaque
-                            laudantium molestias, nesciunt nulla odit quia quisquam reprehenderit saepe ut velit? Amet,
-                            beatae deleniti eligendi minus non obcaecati perferendis porro qui ullam vitae! Accusamus,
-                            architecto, asperiores consequatur cum doloribus esse est exercitationem incidunt ipsam
-                            ipsum iste molestiae nam nihil nostrum.</p>
+                        <p class="lead">Smart Contact Manager is optimized for speed. We've engineered our app to provide you with lightning-fast access to your contacts and information. Say goodbye to long loading times and hello to instant access.</p>
+                        <p class="lead">Our app's efficient design ensures that you can find and connect with your contacts in record time. Whether you're searching for a specific contact, sending a message, or making a call,
+                            Smart Contact Manager streamlines the process, saving you precious minutes in your day.
+                            Experience the difference of fast and efficient connectivity with Smart Contact Manager. Speed and convenience, right at your fingertips."</p>
                     </div>
                     <div class="col-md-5">
                         <img th:src="@{/image/connection.jpg}" class="pb-2 img-fluid" width="500px" height="500px" style="border-radius: 3%"/>

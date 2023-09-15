@@ -10,6 +10,9 @@
                     <a class="nav-link active" aria-current="page" th:href="@{/user/home}">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/user/view-contacts/0?sortField=name&sortDir=asc}">Contacts</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-uppercase" th:text="${session.user.firstName}"></a>
                 </li>
                 <li class="nav-item">
