@@ -23,9 +23,12 @@
                 <p class="lead mb-4">Welcome to Smart Contact Manager. Your All-in-One Contact Management Solution.</p>
                     <p class="lead mb-4">Simplify your life with our intuitive Smart Contact Manager app. Stay organized, connected, and in control of your contacts like never before.
                     Effortlessly manage your address book, enhance your communication, and unlock the full potential of your network.</p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <a class="btn btn-primary btn-lg px-4 gap-3" th:href="@{/signup}" >Login</a>
+                <div th:if="${not userLoggedin}" class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a class="btn btn-primary btn-lg px-4 gap-3" th:href="@{/signin}">Login</a>
                     <a class="btn btn-outline-primary btn-lg px-4" th:href="@{/signup}" >Signup</a>
+                </div>
+                <div th:if="${userLoggedin}">
+                    <a class="btn btn-outline-primary btn-lg px-4" th:href="@{/user/add-contact}" >Start Adding contacts</a>
                 </div>
             </div>
         </div>
@@ -134,7 +137,7 @@
         </main>
     </main>
 
-        <script type="application/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.bundle.js}"></script>
+    <script type="application/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.bundle.js}"></script>
 
 </body>
 </html>

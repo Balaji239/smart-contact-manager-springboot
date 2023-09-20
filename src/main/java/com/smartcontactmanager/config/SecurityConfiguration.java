@@ -65,5 +65,4 @@ public class SecurityConfiguration {
                 .addResourceLocations("file:///H:/SCM-IMG/");
     }
 
-
 }

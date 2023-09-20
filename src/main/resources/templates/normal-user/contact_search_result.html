@@ -1,28 +1,55 @@
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col" class="text-center">Favorite</th>
-                <th scope="col"><a th:href="@{'/user/view-contacts/'+${currentPage}(sortField='name',sortDir=${reverseSortDir})}">Name <i class="fa-solid fa-sort"></i></a></th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-                <th scope="col" colspan="2" class="text-center">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="c : ${contacts}">
-                <th scope="row" class="text-center"><i class="fa-regular fa-star"></i></th>
-                <td>
-                    <img th:src="@{'/image/uploads/'+${c.profileImg}}" alt="img" class="con-profile-img"/> &nbsp;
-                    <span th:text="${c.name}"></span>
-                </td>
-                <td>
-                    <a th:text="${c.email}" th:href="@{'/user/contact/'+${c.id}}"></a>
-                </td>
-                <td th:text="${c.phone}"></td>
-                <td class="text-center">
-                    <a th:onclick="|deleteContact(${c.id})|" class="action-icon"><i class="fa-solid fa-trash-can" style="color: #e35959;"></i></a>
-                </td>
-                <td class="text-center">
-                    <a th:href="@{'/user/edit-contact/'+${c.id}}" class="action-icon"><i class="fa-solid fa-pen-to-square" style="color: #4094e2;"></i></a>
-                </td>
-            </tr>
-            </tbody>
+<thead class="thead-dark">
+<tr>
+    <th scope="col" class="text-center">Favorite</th>
+    <th scope="col"><a th:href="@{'/user/view-contacts/'+${currentPage}(sortField='name',sortDir=${reverseSortDir})}">Name
+        <i class="fa-solid fa-sort"></i></a></th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+    <th scope="col" colspan="2" class="text-center">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="c : ${contacts}">
+    <th scope="row" class="text-center"><i class="fa-regular fa-star"></i></th>
+    <td>
+        <img th:src="@{'/image/uploads/'+${c.profileImg}}" alt="img" class="con-profile-img"/> &nbsp;
+        <span th:text="${c.name}"></span>
+    </td>
+    <td>
+        <a th:text="${c.email}" th:href="@{'/user/contact/'+${c.id}}"></a>
+    </td>
+    <td th:text="${c.phone}"></td>
+    <td class="text-center">
+        <a th:onclick="|deleteContact(${c.id})|" class="action-icon"><i class="fa-solid fa-trash-can"
+                                                                        style="color: #e35959;"></i></a>
+    </td>
+    <td class="text-center">
+        <a th:href="@{'/user/edit-contact/'+${c.id}}" class="action-icon"><i class="fa-solid fa-pen-to-square"
+                                                                             style="color: #4094e2;"></i></a>
+    </td>
+</tr>
+<tr>
+    <td>
+        <nav aria-label="..." class="mt-2">
+            <ul class="pagination">
+                <li class="page-item" th:if="${currentPage!=0}">
+                    <a class="page-link"
+                       th:href="@{'/user/con-search/'+${currentPage-1}(sortField='name',sortDir=${sortDir},filter=${filter})}">Previous</a>
+                </li>
+                <li th:classappend="${currentPage==i-1 ? 'active':''}"
+                    th:each="i : ${#numbers.sequence(1,totalPages)}"
+                    class="page-item">
+                    <a class="page-link" th:if="${i}!=0"
+                       th:href="@{'/user/con-search/'+${searchTerm}+'/'+${i-1}(sortField='name',sortDir=${sortDir})}"
+                       th:text="${i}"></a>
+                </li>
+                <li class="page-item" th:if="${currentPage<totalPages-1}">
+                    <a class="page-link"
+                       th:href="@{'/user/con-search/'+${searchTerm}'/'+${currentPage+1}(sortField='name',sortDir=${sortDir},filter=${filter})}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </td>
+</tr>
+</tbody>
+

@@ -1,44 +1,3 @@
-
-// ADD NEW CONTACT - AJAX
-// $(window).on('load',(function () {
-//
-//     $("#addContactForm").submit(function (e) {
-//         e.preventDefault();
-//
-//         const form = $('#addContactForm').get(0);
-//         let formData = new FormData(form);
-//             for (let pair of formData.entries()) {
-//                 console.log(pair[0]+ ' - ' + pair[1]);
-//             }
-//         $.ajax({
-//             url: '/user/process-contact',
-//             type: 'post',
-//             data: formData,
-//             processData: false,
-//             cache : false,
-//             contentType:false,
-//             success : function (data) {
-//                 console.log("Submitted from ajax");
-//                 console.log('Response : ' + data);
-//                 $('.toast-header').removeClass('toast-alert');
-//                 $('.toast .toast-header .me-auto').text("Contact saved successfully");
-//                 $('.toast').addClass('toast-success');
-//                 $('.toast').toast('show');
-//
-//             },
-//             error : function (error) {
-//                 // console.log("Error from ajax");
-//                 // $('.toast-header').removeClass('toast-success');
-//                 // $('.toast .toast-header .me-auto').text("Something went wrong try again");
-//                 // $('.toast-header').addClass('toast-alert');
-//                 // $('.toast').toast('show');
-//                 window.location = "/user/add-contact";
-//             }
-//         })
-//     })
-// }));
-
-
 function showToast() {
 
     if($('.toast').attr('value')==='success'){
@@ -68,16 +27,6 @@ function deleteContact(id) {
         if (result.isConfirmed) {
 
             window.location = "/user/delete-contact/" + id;
-
-            // Swal.fire(
-            //     'Deleted!',
-            //     'Your Contact has been deleted.',
-            //     'success'
-            // )
-            // setTimeout(function () {
-            //     // window.location = "/user/delete-contact/" + id;
-            // }, 4000);
-
         }
     })
 }
@@ -98,28 +47,37 @@ const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 });
 
 // CONTACT SEARCH AJAX
-const searchContact = (inp) => {
-    console.log(inp.value);
-    let searchTerm = inp.value.trim();
-    console.log(searchTerm);
-    let url = "http://localhost:8080/user/con-search/"+searchTerm;
-    if(searchTerm!==""){
-        fetch(url).then((response) => {
-            return response.text();
-        }).then((data) => {
-            // console.log(data);
-            $('#con-tbl').hide();
-            $('#search-tbl').html(data).show();
-        })
-    }
-    else{
-        $('#con-tbl').show();
-        $('#search-tbl').hide();
-    }
-}
+// const searchContact = (inp) => {
+//     console.log(inp.value);
+//     let searchTerm = inp.value.trim();
+//     console.log(searchTerm);
+//     // window.location = "/user/view-contacts/0?sortField=name&sortDir=asc&searchTerm=" + searchTerm;
+//     let url = "/user/con-search/"+searchTerm+"/0?sortField=name&sortDir=asc";
+//     if(searchTerm!==""){
+//         fetch(url).then((response) => {
+//             return response.text();
+//         }).then((data) => {
+//             console.log(data);
+//             $('#con-tbl').hide();
+//             $('#search-tbl').html(data).show();
+//         })
+//     }
+//     else{
+//         $('#con-tbl').show();
+//         $('#search-tbl').hide();
+//     }
+// }
 
+document.querySelector(".view-relationship").addEventListener("change",(event)=>{
+    const filterTerm = $(".view-relationship").val();
+    console.log(filterTerm);
+    window.location = "/user/view-contacts/0?sortField=name&sortDir=asc&filter=" + filterTerm;
+})
 
-
+document.querySelector("#search-icon").addEventListener("click",()=>{
+    const searchVal = $("#con-search").val();
+    window.location = "/user/view-contacts/0?sortField=name&sortDir=asc&searchTerm="+searchVal;
+})
 
 
 

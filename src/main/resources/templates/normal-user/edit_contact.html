@@ -1,32 +1,32 @@
 <th:block th:replace="normal-user/base::layout(~{::section}, ~{::title})">
     <title>Edit Contact</title>
     <section>
-        <div class="card container">
-            <div class="cardBody">
+        <div class="card container glass-bg">
+            <div class="cardBody mt-4">
                 <h2 class="text-center m-2">Edit Contact</h2>
                 <div class="container-fluid mt-1 addContact-card">
                     <div class="row">
                         <div class="col-md-10 offset-md-1">
-
                             <form action="#" th:action="@{/user/process-update-contact}" method="post" enctype="multipart/form-data" id="addContactForm">
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <input type="text" name="name" placeholder="Name" class="form-control" required th:value="${contact.name}">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <input type="tel" name="phone" placeholder="Phone" class="form-control" th:value="${contact.phone}">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <input type="email" name="email" placeholder="Email" class="form-control" th:value="${contact.email}">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <textarea name="description" rows="10" placeholder="Enter something about the person" class="form-control" th:text="${contact.description}"></textarea>
                                 </div>
                                 <img th:src="@{'/image/'+${contact.profileImg}}" alt="profile pic" class="con-profile-img-big">
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <input type="file" name="profileImg" class="form-control">
                                 </div>
                                 <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-primary m-2">Update Contact</button>
+                                    <button type="submit" class="btn btn-primary m-2">Update</button>
+                                    <a th:href="@{'/user/view-contacts/0?sortField=name&sortDir=asc'}" class="btn btn-outline-primary m-2">Cancel</a>
                                 </div>
                             </form>
                         </div>

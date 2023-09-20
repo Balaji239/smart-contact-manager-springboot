@@ -4,6 +4,7 @@ import com.smartcontactmanager.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -15,16 +16,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // @GetMapping("/dashboard")
-    // public String userDashboardView(HttpSession session, Principal principal){
-    //     session.setAttribute("userLoggedin","true");
-    //     session.setAttribute("user", userService.getUserByName(principal.getName()));
-    //     return "redirect:/";
-    // }
-
     @GetMapping("/home")
-    public String userDashboardView(HttpSession session, Principal principal){
+    public String userDashboardView(HttpSession session, Principal principal, Model model){
         session.setAttribute("userLoggedin","true");
+        model.addAttribute("userLoggedin", true);
         session.setAttribute("user", userService.getUserByName(principal.getName()));
         return "/normal-user/home";
     }

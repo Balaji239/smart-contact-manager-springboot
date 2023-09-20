@@ -13,7 +13,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -61,8 +60,18 @@ public class ContactService {
         contactRepository.deleteById(id);
     }
 
-    public List<Contact> findContactContainingName(String name, User user){
-        return contactRepository.findByNameContainingIgnoreCaseAndUser(name, user);
+    public Page<Contact> findContactContainingName(String name, User user,int pageNo, int pageSize, String sortField, String sortDir){
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
+                Sort.by(sortField).descending();
+        Pageable pageable = PageRequest.of(pageNo, pageSize, sort);
+        return contactRepository.findByNameContainingIgnoreCaseAndUser(name, user, pageable);
+    }
+
+    public Page<Contact> findPaginatedContactsByRelationship(String relationship, User user,int pageNo, int pageSize, String sortField, String sortDir){
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
+                Sort.by(sortField).descending();
+        Pageable pageable = PageRequest.of(pageNo, pageSize, sort);
+        return contactRepository.findContactsByRelationshipAndUser(relationship, user, pageable);
     }
 
 }

@@ -10,16 +10,16 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/mdbootstrap-bootstrap-material-design/4.5.3/css/mdb.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body onload="showToast(); deletePopup()">
+<body onload="showToast(); deletePopup();">
 
     <!-- NAVBAR START -->
     <th:block th:replace="~{normal-user/navbar::user-navbar}"></th:block>
     <!-- NAVBAR END -->
 
 
-    <!-- DASHBOARD START -->
-    <th:block th:replace="~{normal-user/dashboard::dashboard}"></th:block>
-    <!-- DASHBOARD END -->
+    <!-- SIDEBAR START -->
+    <th:block th:replace="~{normal-user/sidebar::sidebar}"></th:block>
+    <!-- SIDEBAR END -->
 
 
     <!-- CONTENT START -->
