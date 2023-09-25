@@ -74,4 +74,24 @@ public class ContactService {
         return contactRepository.findContactsByRelationshipAndUser(relationship, user, pageable);
     }
 
+    public void updateFavourite(boolean isFavourite, int conId){
+        contactRepository.updateFavourite(isFavourite, conId);
+    }
+
+    public boolean updateContact(Contact contact, MultipartFile profileImage){
+        boolean isUpdated = false;
+        try{
+            if (!profileImage.isEmpty()) {
+                contact.setProfileImg(profileImage.getOriginalFilename());
+                fileUtils.saveImage(profileImage);
+            }
+            contactRepository.save(contact);
+            isUpdated = true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return isUpdated;
+    }
+
 }

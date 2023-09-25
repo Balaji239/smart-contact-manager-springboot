@@ -68,15 +68,65 @@ const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 //     }
 // }
 
-document.querySelector(".view-relationship").addEventListener("change",(event)=>{
-    const filterTerm = $(".view-relationship").val();
+document.querySelector(".select-relationship")?.addEventListener("change",(event)=>{
+    const filterTerm = $(".select-relationship").val();
     console.log(filterTerm);
     window.location = "/user/view-contacts/0?sortField=name&sortDir=asc&filter=" + filterTerm;
 })
 
-document.querySelector("#search-icon").addEventListener("click",()=>{
+document.querySelector("#search-btn")?.addEventListener("click",()=>{
     const searchVal = $("#con-search").val();
     window.location = "/user/view-contacts/0?sortField=name&sortDir=asc&searchTerm="+searchVal;
+})
+
+document.querySelector(".add-con-btn")?.addEventListener("click", ()=>{
+    window.location = "/user/add-contact";
+})
+
+document.querySelectorAll(".fav-con-star")?.forEach(ele => ele.addEventListener("click", updateContact));
+
+function updateContact(event){
+    const element = $(event.target);
+    let isFavourite = false;
+    const id = element.attr('id');
+    if(element.hasClass('fa-regular')){
+        element.removeClass('fa-regular')
+        element.addClass('fa-solid');
+        isFavourite = true;
+    }
+    else if(element.hasClass('fa-solid')){
+        element.removeClass('fa-solid');
+        element.addClass('fa-regular');
+        isFavourite = false;
+    }
+
+    const url = "/user/con-favourite?conId="+id+"&isFavourite="+isFavourite;
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    };
+
+    fetch(url, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Response data:', data);
+        })
+        .catch(error => {
+            console.error('There was a problem with the POST request:', error);
+        });
+}
+
+document.querySelector("#edit-con-form")?.addEventListener("submit",(event)=>{
+    // event.target.preventDefault();
+
 })
 
 

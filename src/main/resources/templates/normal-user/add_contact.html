@@ -4,15 +4,15 @@
         <!--Toast-->
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" th:if="${status}" th:value="${status}">
             <div class="toast-header">
-                <strong class="me-auto">Hi</strong>
+                <strong class="me-auto"></strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>
 
-        <div class="container-lg ">
+        <div class="container-lg">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-10 mt-5">
-                    <div class="card glass-bg">
+                    <div class="card glass-bg reg-card-container">
                         <div class="reg-card card-body w-responsive">
                             <h2 class="text-center mb-4">Add New Contact</h2>
                             <form th:action="@{/user/process-contact}" method="post" enctype="multipart/form-data" id="addContactForm" th:object="${contact}">

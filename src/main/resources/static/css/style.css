@@ -12,7 +12,7 @@ body{
 #banner-container{
     width: 100vw;
     height: 60vh;
-    background: url("../image/banner2.jpg") no-repeat;
+    /*background: url("../image/banner2.jpg") no-repeat;*/
 }
 
 #login-section{
@@ -28,6 +28,14 @@ body{
     margin:auto;
     border-radius: 8px;
     padding: 11px;
+}
+
+.reg-card-container{
+    margin-top: calc(100vh - 95vh);
+}
+
+.edit-con-card{
+    margin-top: calc(100vh - 92vh);
 }
 
 #login-form{
@@ -71,7 +79,7 @@ body{
     height: 50px;
 }
 .toast-success{
-    background: rgb(138, 203, 153);
+    background: rgb(44, 168, 72);
 }
 .toast-alert{
     background: rgb(205, 117, 117);
@@ -85,8 +93,8 @@ body{
 }
 
 .con-profile-img-big{
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -186,18 +194,32 @@ button[data-bs-toggle="offcanvas"]{
     margin: 0 ;
 }
 
-#search-icon{
-    display: inline-block;
-    border-radius: 4px;
-    color: white;
+.fav-con-star{
+    padding: 3px;
+    font-size: 16px;
+}
+.fav-con-star:hover{
     cursor: pointer;
-    width: 140px;
-    opacity: 90%;
 }
 
-#search-icon:hover{
-    opacity: 100%;
+.edit-con-section{
+    margin-top: calc(100vh - 90vh);
 }
+
+/*#search-icon{*/
+/*    display: inline-block;*/
+/*    border-radius: 4px;*/
+/*    color: white;*/
+/*    cursor: pointer;*/
+/*    width: 140px;*/
+/*    opacity: 90%;*/
+/*}*/
+
+/*#search-icon:hover{*/
+/*    opacity: 100%;*/
+/*}*/
+
+
 
 
 
