@@ -99,13 +99,13 @@ public class ContactsController {
         cont.setEmail(contact.getEmail());
         cont.setPhone(contact.getPhone());
         cont.setDescription(contact.getDescription());
-//            cont.setProfileImg(contact.getProfileImg());
+        cont.setRelationship(contact.getRelationship());
         if (contactService.updateContact(cont, profileImage))
             redirectAttributes.addFlashAttribute("status", "success");
         else
             redirectAttributes.addFlashAttribute("status", "fail");
 
         return "redirect:/user/edit-contact/"+conId;
-}
+    }
 
 }

@@ -11,7 +11,7 @@ public class HomeController {
 
     @GetMapping(value = {"/home","/"})
     public String homeView(Model model,HttpSession session){
-        Boolean isUserLoggedIn = (Boolean)session.getAttribute("userLoggedin");
+        Boolean isUserLoggedIn = Boolean.parseBoolean((String) session.getAttribute("userLoggedin"));
         if(isUserLoggedIn!=null && isUserLoggedIn){
             model.addAttribute("userLoggedin",true);
         }

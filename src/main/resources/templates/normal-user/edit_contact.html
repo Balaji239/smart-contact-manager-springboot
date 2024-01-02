@@ -19,18 +19,19 @@
                         <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}"
                              th:text="${#fields.errors('name')}"></div>
                     </div>
-                    <select class="form-select mb-2" id="autoSizingSelect" name="relationship" th:field="*{relationship}"
+                    <select class="form-select mb-2" id="autoSizingSelect" name="relationship"
+                            th:field="*{relationship}"
                             th:classappend="${#fields.hasErrors('relationship')} ? 'is-invalid':''">
-                        <option selected value="">Relation</option>
-                        <option value="Friend">Friend</option>
-                        <option value="Spouse">Spouse</option>
-                        <option value="Aunt/Uncle">Aunt/Uncle</option>
-                        <option value="Parent">Parent</option>
-                        <option value="Fiance">Fiance</option>
-                        <option value="Neighbor">Neighbor</option>
-                        <option value="Sibling">Sibling</option>
-                        <option value="Child">Child</option>
-                        <option value="Other">Other</option>
+                        <option value="" disabled th:selected="${contact.relationship=='Relation'}">Relation</option>
+                        <option value="Friend" th:selected="${contact.relationship=='Friend'}">Friend</option>
+                        <option value="Spouse" th:selected="${contact.relationship=='Spouse'}">Spouse</option>
+                        <option value="Aunt/Uncle" th:selected="${contact.relationship=='Aunt/Uncle'}">Aunt/Uncle</option>
+                        <option value="Parent" th:selected="${contact.relationship=='Parent'}">Parent</option>
+                        <option value="Fiance" th:selected="${contact.relationship=='Fiance'}">Fiance</option>
+                        <option value="Neighbor" th:selected="${contact.relationship=='Neighbor'}">Neighbor</option>
+                        <option value="Sibling" th:selected="${contact.relationship=='Sibling'}">Sibling</option>
+                        <option value="Child" th:selected="${contact.relationship=='Child'}">Child</option>
+                        <option value="Other" th:selected="${contact.relationship=='Other'}">Other</option>
                     </select>
                     <div class="invalid-feedback" th:if="${#fields.hasErrors('relationship')}"
                          th:text="${#fields.errors('relationship')}"></div>
@@ -43,9 +44,7 @@
                                th:value="${contact.email}">
                     </div>
                     <div class="form-group mb-2">
-                                            <textarea name="description" rows="10"
-                                                      placeholder="Enter something about the person"
-                                                      class="form-control" th:text="${contact.description}"></textarea>
+                        <textarea name="description" rows="10" placeholder="Enter something about the person" class="form-control" th:text="${contact.description}"></textarea>
                     </div>
                     <div class="text-center">
                         <img th:src="@{'/image/uploads/'+${contact.profileImg}}" alt="profile pic"

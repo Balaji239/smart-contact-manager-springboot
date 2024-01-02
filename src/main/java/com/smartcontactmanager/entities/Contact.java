@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "SCM_CONTACTS")
-public class Contact {
+public class Contact extends BaseEntity{
 
     @Id  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contacts_seq")
     @SequenceGenerator(name = "contacts_seq", sequenceName = "CONTACTS_SEQ", allocationSize = 1)
@@ -34,7 +34,7 @@ public class Contact {
 
     private String description;
 
-    private boolean isFavorite;
+    private boolean isFavorite=false;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

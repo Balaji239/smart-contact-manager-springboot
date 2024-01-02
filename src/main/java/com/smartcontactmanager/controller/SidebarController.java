@@ -38,8 +38,10 @@ public class SidebarController {
                                    @RequestParam("sortField") String sortField, @RequestParam("sortDir") String sortDir, @RequestParam(required = false) String filter,
                                    @RequestParam(required = false) String searchTerm, Principal principal){
         Page<Contact> contacts;
+        session.setAttribute("userLoggedin","true");
+        session.setAttribute("user", userService.getUserByName(principal.getName()));
         User user = (User) session.getAttribute("user");
-        model.addAttribute("filter","Relationship");
+        model.addAttribute("filter","All Contacts");
         if(searchTerm!=null){
             contacts = contactService.findContactContainingName(searchTerm, user,page,5,sortField,sortDir);
             model.addAttribute("searchTerm",searchTerm);
@@ -54,10 +56,10 @@ public class SidebarController {
             model.addAttribute("filter",filter);
         }
         else {
+            System.out.println("My name is Balaji");
             contacts = contactService.findPaginatedContactsList(user, page,5, sortField, sortDir);
         }
-        session.setAttribute("userLoggedin","true");
-        session.setAttribute("user", userService.getUserByName(principal.getName()));
+
         model.addAttribute("contacts", contacts);
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", contacts.getTotalPages());
@@ -65,6 +67,12 @@ public class SidebarController {
         model.addAttribute("sortDir", sortDir);
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
         return "normal-user/view_contacts";
+    }
+
+    @GetMapping("/view-profile")
+    public String viewProfile(Model model, HttpSession session){
+        model.addAttribute("user", session.getAttribute("user"));
+        return "normal-user/view_profile";
     }
 
 }

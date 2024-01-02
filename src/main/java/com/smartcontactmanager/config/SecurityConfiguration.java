@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -57,12 +56,6 @@ public class SecurityConfiguration {
                 .and().csrf().disable();
         http.headers().frameOptions().disable();
         return http.build();
-    }
-
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-                .addResourceHandler("/files/**")
-                .addResourceLocations("file:///H:/SCM-IMG/");
     }
 
 }
